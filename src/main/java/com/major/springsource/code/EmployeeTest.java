@@ -1,16 +1,15 @@
 package com.major.springsource.code;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class EmployeeTest {
-    public static void main(String[] args) {
+    public static void main(String[] args, Class aClass1) {
         Employee employee= new Employee("zhangzixuan", 35.2d, 2003, 3, 2);
         //对象getclass
         Class employeeClass = employee.getClass();
         System.out.println(employeeClass.getName());
         //Class.forname静态方法，通过类名字符串
-        Class aClass = null;
+        Class aClass = aClass1;
         try {
             aClass = Class.forName("java.util.Random");
         } catch (ClassNotFoundException e) {
