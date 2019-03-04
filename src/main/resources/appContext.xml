@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="messageService" class="com.major.springsource.service.MessageServiceImpl" name="zzzzzz">
+    </bean>
+    <!--<bean id="messagePrinter" class="com.major.springsource.printer.MessagePrinter">-->
+    <!--<constructor-arg name="messageService" ref="messageService"></constructor-arg>-->
+    <!--<constructor-arg type="java.lang.String" value="string hello">-->
+    <!--</constructor-arg>-->
+    <!--<property name="small" value="123"></property>-->
+    <!--</bean>-->
+    <bean id="messagePrinter" class="com.major.springsource.printer.MessagePrinter" factory-method="createPrinter">
+        <constructor-arg name="messageService" ref="messageService"></constructor-arg>
+        <property name="small" value="123"></property>
+        <constructor-arg name="string" value="123"></constructor-arg>
+    </bean>
+    <bean id="mService" class="com.major.springsource.service.MessageServiceImpl" factory-method="createInstance">
+    </bean>
+    <bean id="clientService" class="com.major.springsource.service.ClientService" factory-method="createInstance"></bean>
+</beans>
